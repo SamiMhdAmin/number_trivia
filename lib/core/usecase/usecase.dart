@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:number_trivia/core/failure/failure.dart';
+import 'package:number_trivia/core/errors/failure.dart';
 
 abstract class UseCase<Type,Params> {
   
