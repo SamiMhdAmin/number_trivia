@@ -9,7 +9,7 @@ import 'package:number_trivia/features/number_trivia/data/model/number_trivia_mo
 import 'package:number_trivia/features/number_trivia/domain/entities/number_trivia.dart';
 import 'package:number_trivia/features/number_trivia/domain/repositories/number_trivia_repository.dart';
 
-typedef _ConcreteOrRandomChoser = Future<NumberTrivia> Function();
+typedef _ConcreteOrRandomChoser = Future<NumberTriviaModel> Function();
 
 class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
   NumberTriviaRemoteDataSource remoteDataSource;
