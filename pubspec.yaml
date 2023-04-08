@@ -41,6 +41,7 @@ dependencies:
   dartz: ^0.10.1
   mockito: ^5.4.0
   shared_preferences: ^2.1.0
+  http: ^0.13.5
 
 dev_dependencies:
   flutter_test:
