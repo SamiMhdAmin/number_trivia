@@ -14,11 +14,11 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
   final GetRandomNumberTrivia getRandomNumberTrivia;
   final GetConcreteNumberTrivia getConcreteNumberTrivia;
   final InputConvert inputConvert;
-  NumberTriviaBloc(
-    this.getRandomNumberTrivia,
-    this.getConcreteNumberTrivia,
-    this.inputConvert,
-  ) : super(NumberTriviaInitial()) {
+  NumberTriviaBloc({
+    required this.getRandomNumberTrivia,
+    required this.getConcreteNumberTrivia,
+    required this.inputConvert,
+  }) : super(NumberTriviaInitial()) {
     on<NumberTriviaEvent>((event, emit) async {
       if (event is GetTriviaForConcreteNumber) {
         final inputEither = inputConvert.stringToUnsignedInteger(event.number);
@@ -35,7 +35,7 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
             emit(NumberTriviaSuccess(numberTrivia: trivia));
           });
         });
-      }else if(event is GetTriviaForRandomNumber){
+      } else if (event is GetTriviaForRandomNumber) {
         (integer) async* {
           emit(NumberTriviaLoading());
           final failureOrTrivia =
