@@ -1,4 +1,4 @@
-import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get_it/get_it.dart';
 import 'package:number_trivia/core/platform/network_info.dart';
 import 'package:number_trivia/core/utils/input_convert.dart';
@@ -55,7 +55,7 @@ Future<void> init() async {
   final sharedPreferences = await SharedPreferences.getInstance();
   locator.registerLazySingleton(() => sharedPreferences);
   locator.registerLazySingleton(() => http.Client());
-  locator.registerLazySingleton(() => DataConnectionChecker());
+  locator.registerLazySingleton(() => Connectivity());
 }
 
 

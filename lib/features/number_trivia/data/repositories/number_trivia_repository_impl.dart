@@ -46,8 +46,11 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
         final remoteTrivia =
             await getConcreteOrRandom();
         localDataSource.cacheNumberTrivia(remoteTrivia);
+        print('before failure');
         return Right(remoteTrivia);
       } on ServerExeption {
+        print('After failure');
+
         return Left(ServerFailure());
       }
     } else {
