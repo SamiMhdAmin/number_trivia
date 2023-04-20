@@ -14,7 +14,7 @@ class HomeTrivia extends StatelessWidget {
           title: const Text('Number Trivia'),
           backgroundColor: Colors.purple.shade400,
         ),
-        body: HomeBody(),
+        body: const HomeBody(),
       ),
     );
   }

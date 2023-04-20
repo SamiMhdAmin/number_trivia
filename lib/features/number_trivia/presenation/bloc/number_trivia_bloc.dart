@@ -1,5 +1,3 @@
-
-
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
@@ -54,6 +52,14 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
 
     on<GetTriviaForRandomNumber>((event, emit) async {
       // Your event handling logic goes here.
+      emit(NumberTriviaLoading());
+      final failureOrTrivia = await getRandomNumberTrivia.execute(NoParams());
+      print(failureOrTrivia);
+      failureOrTrivia.fold((failure) {
+        emit(NumberTriviaFailure(msg: "Cache or network failure"));
+      }, (trivia) {
+        emit(NumberTriviaSuccess(numberTrivia: trivia));
+      });
     });
   }
 }

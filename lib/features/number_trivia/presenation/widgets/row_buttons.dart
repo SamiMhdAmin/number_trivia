@@ -34,7 +34,9 @@ class _RowButtonsState extends State<RowButtons> {
           width: MediaQuery.of(context).size.width*.4,
           height: 50,
           child: OutlinedButton(
-            onPressed: () {},
+            onPressed: () {
+              return dispatchRandom();
+            },
             child: Text(
               'Get random number Trivia',
               style: TextStyle(color: Colors.purple.shade400),
@@ -50,5 +52,10 @@ class _RowButtonsState extends State<RowButtons> {
     print('number: $number');
     // BlocProvider.of<NumberTriviaBloc>(context).add(GetTriviaForConcreteNumber(number));
     context.read<NumberTriviaBloc>().add(GetTriviaForConcreteNumber(number));
+  }
+
+  void dispatchRandom(){
+    // BlocProvider.of<NumberTriviaBloc>(context).add(GetTriviaForConcreteNumber(number));
+    context.read<NumberTriviaBloc>().add(GetTriviaForRandomNumber());
   }
 }
